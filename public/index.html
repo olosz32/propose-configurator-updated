@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Build your dream marriage proposal in Budapest. Choose decoration, location, and extras. Get a personalised quote.">
+<title>Propose in Budapest — Build Your Dream Proposal</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>💍</text></svg>">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-8MHGSP9SWX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-8MHGSP9SWX');</script>
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>if(typeof emailjs==="undefined"){window.emailjs={init:function(){},send:function(){return Promise.resolve()}}}</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f8f7f5;color:#1a1a1a;-webkit-font-smoothing:antialiased}
+.app{max-width:580px;margin:0 auto;padding:24px 16px;min-height:100vh}
+.hdr{text-align:center;margin-bottom:28px}
+.hdr small{font-size:11px;color:#888;letter-spacing:2.5px;text-transform:uppercase}
+.hdr h1{font-size:24px;font-weight:500;margin-top:6px}
+.prog{display:flex;gap:6px;margin-bottom:28px}
+.prog div{flex:1;height:4px;border-radius:2px;background:#e5e5e5;transition:background .3s}
+.prog div.a{background:#1a3a5c}
+.slbl{margin-bottom:20px}
+.slbl .n{font-size:12px;font-weight:500;color:#378add;margin-bottom:2px}
+.slbl h2{font-size:18px;font-weight:500}
+.slbl p{font-size:13px;color:#888;margin-top:4px}
+.g2{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+@media(max-width:500px){.g3{grid-template-columns:repeat(2,1fr)}}
+.cd{border:1px solid #e5e5e5;border-radius:12px;overflow:hidden;cursor:pointer;background:#fff;transition:all .2s;position:relative;user-select:none}
+.cd:hover{border-color:#ccc}
+.cd.s{border:2px solid #378add;transform:scale(1.02)}
+.ci{height:180px;display:flex;align-items:center;justify-content:center;color:rgba(255,255,255,.6);font-size:11px;text-align:center;padding:8px;overflow:hidden;position:relative}
+.ci img{width:100%;height:100%;object-fit:cover;display:block}
+.cb{padding:10px 12px}
+.cb h3{font-size:14px;font-weight:500;margin-bottom:3px}
+.cb p{font-size:11px;color:#888;line-height:1.3;margin-bottom:8px;overflow:hidden;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+.cb .pr{font-size:17px;font-weight:500}
+.cd.s .pr{color:#378add}
+.ck{position:absolute;top:8px;right:8px;width:24px;height:24px;border-radius:50%;background:#378add;display:flex;align-items:center;justify-content:center;z-index:2}
+.bg{position:absolute;top:8px;left:8px;color:#fff;font-size:9px;font-weight:600;padding:2px 7px;border-radius:5px;z-index:2}
+.sm .ci{height:120px}
+.sm .cb{padding:7px 9px}
+.sm .cb h3{font-size:12px;margin-bottom:2px}
+.sm .cb p{font-size:10px}
+.sm .cb .pr{font-size:14px}
+.ec{border:1px solid #e5e5e5;border-radius:12px;cursor:pointer;background:#fff;transition:all .2s;position:relative;user-select:none;padding:16px 12px;text-align:center}
+.ec:hover{border-color:#ccc}
+.ec.s{border:2px solid #378add}
+.ec h3{font-size:13px;font-weight:500;margin-bottom:4px;line-height:1.3}
+.ec p{font-size:11px;color:#888;line-height:1.3;margin-bottom:10px}
+.ep{border-top:1px solid #eee;padding-top:10px;font-size:18px;font-weight:500}
+.ec.s .ep{color:#378add}
+.sum{background:#f0efed;border-radius:12px;padding:16px 20px;margin-bottom:24px}
+.sr{display:flex;justify-content:space-between;margin-bottom:8px;font-size:14px}
+.st{border-top:1px solid #ddd;margin-top:12px;padding-top:12px;display:flex;justify-content:space-between;align-items:center}
+.st span:last-child{font-size:22px;font-weight:500;color:#378add}
+.cal{background:#f0efed;border-radius:12px;padding:14px 16px;margin-bottom:20px}
+.ch{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px}
+.ch button{background:none;border:none;font-size:20px;cursor:pointer;color:#333;padding:4px 10px}
+.ch span{font-size:15px;font-weight:500}
+.cg{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;text-align:center}
+.cw{font-size:11px;color:#888;padding:4px 0;font-weight:500}
+.dy{padding:8px 0;font-size:13px;border-radius:8px;cursor:pointer;transition:all .15s}
+.dy:hover{background:#e0e0e0}
+.dy.di{color:#ccc;cursor:default}.dy.di:hover{background:transparent}
+.dy.ds{background:#1a3a5c;color:#fff;font-weight:500}
+.fld{margin-bottom:10px}
+.fld label{font-size:13px;font-weight:500;display:block;margin-bottom:4px}
+.fld input,.fld textarea{width:100%;padding:10px 12px;font-size:14px;border-radius:8px;border:1px solid #e5e5e5;background:#fff;color:#1a1a1a;font-family:inherit}
+.fld input:focus,.fld textarea:focus{outline:none;border-color:#378add}
+.btm{margin-top:24px;padding:14px 0;border-top:1px solid #e5e5e5;display:flex;justify-content:space-between;align-items:center}
+.bb{background:transparent;border:1px solid #ccc;border-radius:8px;padding:10px 20px;font-size:14px;cursor:pointer;color:#1a1a1a;font-family:inherit}
+.bn{background:#1a3a5c;color:#fff;border:none;border-radius:8px;padding:12px 28px;font-size:14px;font-weight:500;cursor:pointer;font-family:inherit;transition:background .2s}
+.bn:disabled{background:#ccc;cursor:not-allowed}
+.bn:not(:disabled):hover{background:#254d73}
+.cta{text-align:center;margin-top:10px;font-size:13px;color:#888}
+.cta a{color:#378add;text-decoration:underline}
+.inc{margin-top:24px;padding:12px 16px;background:#f0efed;border-radius:10px;font-size:12px;color:#888;line-height:1.5}
+.inc strong{color:#1a1a1a}
+.suc{text-align:center;padding:48px 0}
+.suc h2{font-size:22px;font-weight:500;margin-bottom:8px}
+.promo{background:#eaf3de;border-radius:10px;padding:12px 16px;margin-bottom:14px;text-align:center;font-size:14px;font-weight:500;color:#3b6d11}
+.vsel{display:flex;gap:6px;margin-top:8px;justify-content:center}
+.vsel button{padding:5px 14px;border-radius:6px;border:1px solid #ddd;background:#fff;font-size:11px;font-weight:500;cursor:pointer;transition:all .15s}
+.vsel button.va{border-color:#378add;background:#378add;color:#fff}
+</style>
+</head>
+<body>
+<div class="app" id="app"></div>
+<script>
+emailjs.init("yhe_mbjgf-0TxIkcw");
+
+var D=[
+{id:"simple",name:"Simple Elegant",price:250,desc:'LED candles, roses, rose petals, "Will You Marry Me" LED letters, lanterns, string lights, speaker, champagne',img:"images/decor-simple.jpg"},
+{id:"simple-deluxe",name:"Simple Elegant Deluxe",price:300,desc:"Enhanced lighting, additional roses, premium candle arrangement, all Simple Elegant features",img:"images/decor-simple-deluxe.jpg"},
+{id:"blooming",name:"Blooming Elegance",price:300,desc:"Tall floral installations in a semicircle with elegant pillar candles — a lush garden atmosphere",img:"images/decor-blooming.jpg"},
+{id:"pink-romance",name:"Pink Romance Arch Setup",price:480,desc:"A breathtaking pink rose arch with cascading blooms, golden candelabras, pillar candles, rose-filled vases, and a petal-covered aisle",img:"images/decor-pink-romance.jpg"},
+{id:"romantic-arch",name:"Romantic Arch",price:380,desc:"Beautiful arch with string lights and flowers, rose petals, candles, lanterns, champagne",img:"images/decor-romantic-arch.jpg"},
+{id:"magnificent",name:"Magnificent Arch",price:560,desc:"Heart-shaped rose arch from 100+ roses, LED sign, petals, candles, string lights, lanterns, rose balls",img:"images/decor-magnificent.jpg",variants:["Red","White"],variant:null}
+];
+
+var L=[
+{id:"gellert-panoramic",name:"Gellért Hill — Panoramic",price:0,pl:"No venue fee",desc:"Breathtaking panoramic views over the city and the Danube.",pub:true,img:"images/gellert-panoramic.jpg"},
+{id:"gellert-mirador",name:"Gellért Hill — Mirador",price:0,pl:"No venue fee",desc:"A secluded viewpoint with an intimate setting and stunning city views.",pub:true,img:"images/gellert-mirador.jpg"},
+{id:"gellert-fullcity",name:"Gellért Hill — Full City",price:0,pl:"No venue fee",desc:"Wide-angle city panorama — a dramatic backdrop for your proposal.",pub:true,img:"images/gellert-fullcity.jpg"},
+{id:"gellert-citadella",name:"Gellért Hill — Citadella",price:0,pl:"No venue fee",desc:"Near the Citadella with sweeping views of both sides of the Danube.",pub:true,img:"images/gellert-citadella.jpg"},
+{id:"fisherman-wall",name:"Fisherman's Bastion — Public Wall",price:0,pl:"No venue fee",desc:"A charming public section of the iconic Bastion with fairy-tale architecture.",pub:true,img:"images/fisherman-wall.jpg",onlyDecor:"simple"},
+{id:"vajdahunyad",name:"Vajdahunyad Castle — Secret Garden",price:60,pl:"From €60",desc:"A fairy-tale garden setting at the iconic castle in City Park.",pub:false,img:"images/vajdahunyad.jpg"},
+{id:"vajdahunyad-front",name:"Vajdahunyad Castle — Front",price:0,pl:"No venue fee",desc:"The stunning front entrance of the iconic fairy-tale castle.",pub:true,img:"images/vajdahunyad-front.jpg"},
+{id:"villa-fountain",name:"Villa Fountain (Buda)",price:200,pl:"From €200",desc:"An elegant villa with gardens and fountain in the Buda hills.",pub:false,img:"images/villa-fountain.jpg"},
+{id:"mol-tower",name:"MOL Tower",price:320,pl:"From €320",desc:"Budapest's newest landmark with 360° views from the observation deck.",pub:false,img:"images/mol-tower.jpg"},
+{id:"cruise",name:"Private Danube Cruise",price:260,pl:"From €260",desc:"A private boat on the Danube. Evening surcharge (after 6 PM): +€60.",pub:false,img:"images/cruise.jpg"},
+{id:"lumiere",name:"Lumiere Hall",price:260,pl:"From €260",desc:"An immersive multimedia room — a unique, cinematic proposal atmosphere.",pub:false,img:"images/lumiere.jpg"},
+{id:"pluto",name:"Pluto Sky Lounge",price:300,pl:"From €300",desc:"A private sky terrace high above the city — a truly elevated experience.",pub:false,img:"images/pluto.jpg"},
+{id:"buda-castle",name:"Buda Castle — Parliament View",price:600,pl:"From €600",desc:"A private spot at the historic Buda Castle with direct Parliament view.",pub:false,img:"images/buda-castle.jpg"},
+{id:"fisherman",name:"Fisherman's Bastion — Private Terrace",price:1000,pl:"From €1,000",desc:"Exclusive private terrace with Parliament views. 3-course dinner for two included.",pub:false,img:"images/fisherman.jpg"},
+{id:"robinson",name:"Robinson Restaurant",price:0,pl:"No venue fee",desc:"Private terrace by the lake in City Park. Minimum dinner spend required.",pub:false,img:"images/robinson.jpg"},
+{id:"helicopter",name:"Helicopter to Etyek Vineyard",price:1600,pl:"From €1,600",desc:"An unforgettable helicopter ride to a stunning vineyard outside Budapest.",pub:false,img:"images/helicopter.jpg"}
+];
+
+var E=[
+{id:"photographer",name:"Professional Photographer",price:120,desc:"25–30 professionally edited photos",icon:"camera"},
+{id:"videographer",name:"Professional Videographer",price:150,desc:"1–2 min cinematic highlight video",icon:"video"},
+{id:"musician",name:"Live Musician",price:100,desc:"Violinist, guitarist or saxophonist",icon:"music"},
+{id:"single-rose",name:"Eternal Rose",price:30,desc:"One beautiful preserved eternal rose",icon:"rose1"},
+{id:"bouquet-30",name:"Rose Bouquet",price:100,desc:"30 fresh roses beautifully arranged",icon:"bsm"},
+{id:"bouquet-50",name:"Rose Bouquet",price:220,desc:"50 fresh roses — lush arrangement",icon:"bmd"},
+{id:"bouquet-100",name:"Rose Bouquet",price:480,desc:"100 fresh roses — grand bouquet",icon:"blg"},
+{id:"photo-display",name:"Photo Display",price:30,desc:"Up to 20 personal photos displayed",icon:"photos"},
+{id:"cold-spark",name:"Cold Spark Fountain",price:100,desc:"Sparkling effect. Private venues only.",icon:"spark"}
+];
+
+var MO=["January","February","March","April","May","June","July","August","September","October","November","December"];
+var DW=["Su","Mo","Tu","We","Th","Fr","Sa"];
+function fm(n){return"€"+n.toLocaleString();}
+function esc(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");}
+function fd(d){return d?d.getDate()+" "+MO[d.getMonth()]+" "+d.getFullYear():"";}
+function fds(a){return a.sort(function(x,y){return x-y}).map(fd).join(", ");}
+
+var S={step:0,decor:null,loc:null,extras:[],dates:[],form:{name:"",email:"",phone:"",msg:""},done:false,sending:false,cY:new Date().getFullYear(),cM:new Date().getMonth()};
+
+function disc(){
+  if(S.extras.length<3)return{id:null,amt:0};
+  var sorted=S.extras.slice().sort(function(a,b){return a.price-b.price});
+  return{id:sorted[0].id,amt:Math.round(sorted[0].price/2)};
+}
+function tot(){return(S.decor?S.decor.price:0)+(S.loc?S.loc.price:0)+S.extras.reduce(function(s,e){return s+e.price},0)-disc().amt;}
+function ok(){
+  if(S.step===0){
+    if(!S.decor)return false;
+    if(S.decor.variants&&!S.decor.variant)return false;
+    return true;
+  }
+  if(S.step===1)return!!S.loc;
+  if(S.step===2)return true;
+  if(S.step===3)return S.form.name&&S.form.email&&S.dates.length>0;
+  return false;
+}
+
+var CK='<svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="2.5,7 5.5,10 11.5,4"/></svg>';
+var HT='<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 21C12 21 3 13.5 3 8.5C3 5.42 5.42 3 8.5 3C10.24 3 11.91 3.81 12 5.08C12.09 3.81 13.76 3 15.5 3C18.58 3 21 5.42 21 8.5C21 13.5 12 21 12 21Z"/></svg>';
+
+function eico(t){
+  var s='fill="none" stroke="#1a3a5c" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+  if(t==="camera")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><rect x="4" y="10" width="28" height="20" rx="3"/><circle cx="18" cy="20" r="6"/><circle cx="18" cy="20" r="2.5"/><path d="M12 10L14 6h8l2 4"/></svg>';
+  if(t==="video")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><rect x="3" y="10" width="20" height="16" rx="2"/><path d="M23 15l10-4v14l-10-4z"/><circle cx="10" cy="7" r="3"/><path d="M13 7h5"/><circle cx="21" cy="7" r="2"/></svg>';
+  if(t==="music")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><path d="M12 28V10"/><path d="M24 26V8"/><path d="M12 14c0-3 12-5 12-3"/><circle cx="9" cy="28" r="4"/><circle cx="21" cy="26" r="4"/></svg>';
+  if(t==="rose1")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><path d="M18 14v18"/><path d="M15 20c-3-1-5-3-5-3"/><path d="M21 22c3-1 4-3 4-3"/><ellipse cx="18" cy="10" rx="4" ry="5"/><path d="M15 8c-1-3 1-5 3-5s4 2 3 5"/></svg>';
+  if(t==="bsm")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><path d="M18 20v12"/><path d="M15 24c-2 0-3-1-3-1"/><path d="M21 24c2 0 3-1 3-1"/><circle cx="18" cy="14" r="3"/><circle cx="14" cy="15" r="2.5"/><circle cx="22" cy="15" r="2.5"/></svg>';
+  if(t==="bmd")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><path d="M18 19v13"/><path d="M14 23c-2 0-4-1-4-1"/><path d="M22 23c2 0 4-1 4-1"/><circle cx="18" cy="12" r="3.5"/><circle cx="13" cy="13" r="3"/><circle cx="23" cy="13" r="3"/><circle cx="15" cy="8" r="2.5"/><circle cx="21" cy="8" r="2.5"/></svg>';
+  if(t==="blg")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><path d="M18 18v14"/><path d="M13 22c-2 0-4-1-4-1"/><path d="M23 22c2 0 4-1 4-1"/><circle cx="18" cy="11" r="4"/><circle cx="12" cy="13" r="3.5"/><circle cx="24" cy="13" r="3.5"/><circle cx="14" cy="8" r="3"/><circle cx="22" cy="8" r="3"/><circle cx="18" cy="5" r="2.5"/><circle cx="9" cy="10" r="2.5"/><circle cx="27" cy="10" r="2.5"/></svg>';
+  if(t==="photos")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><rect x="3" y="8" width="16" height="14" rx="1.5" transform="rotate(-8 11 15)"/><rect x="15" y="6" width="16" height="14" rx="1.5" transform="rotate(6 23 13)"/><circle cx="22" cy="11" r="2"/></svg>';
+  if(t==="spark")return'<svg viewBox="0 0 36 36" width="36" height="36" '+s+'><path d="M18 4v6"/><path d="M18 26v6"/><path d="M8 8l4 4"/><path d="M24 24l4 4"/><path d="M4 18h6"/><path d="M26 18h6"/><path d="M8 28l4-4"/><path d="M24 12l4-4"/><path d="M18 12v8"/><path d="M14 16h8"/></svg>';
+  return HT;
+}
+
+function imgTag(src,name,c,pos){
+  var st='width:100%;height:100%;object-fit:cover;display:block';
+  if(pos)st+=';object-position:'+pos;
+  if(src)return'<img src="'+src+'" alt="'+esc(name)+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="'+st+'"><div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,'+(c||"#1a3a5c")+','+(c||"#1a3a5c")+'99);color:rgba(255,255,255,.6);font-size:11px;text-align:center">'+HT+'<div>'+esc(name)+'</div></div>';
+  return'<div style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,'+(c||"#1a3a5c")+','+(c||"#1a3a5c")+'99);color:rgba(255,255,255,.6);font-size:11px;text-align:center;padding:8px">'+HT+'<br>'+esc(name)+'</div>';
+}
+
+function render(){
+  var a=document.getElementById("app");
+  if(S.done){
+    var h='<div class="suc"><div style="width:64px;height:64px;border-radius:50%;background:#eaf3de;display:flex;align-items:center;justify-content:center;margin:0 auto 24px"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#639922" stroke-width="2.5" stroke-linecap="round"><polyline points="4,12 9,17 20,6"/></svg></div>';
+    h+='<h2>Thank you, '+esc(S.form.name)+'!</h2>';
+    h+='<p style="font-size:15px;color:#666;line-height:1.6;max-width:420px;margin:0 auto 32px">We have received your proposal request. Our team will reach out within 24 hours.</p>';
+    h+='<div class="sum" style="text-align:left;max-width:420px;margin:0 auto">';
+    h+='<div style="font-size:14px;margin-bottom:6px"><strong>Decoration:</strong> '+esc(S.decor.name)+(S.decor.variant?' ('+esc(S.decor.variant)+')':'') +' — '+fm(S.decor.price)+'</div>';
+    h+='<div style="font-size:14px;margin-bottom:6px"><strong>Location:</strong> '+esc(S.loc.name)+' — '+S.loc.pl+'</div>';
+    h+='<div style="font-size:14px;margin-bottom:6px"><strong>Dates:</strong> '+fds(S.dates)+'</div>';
+    if(S.extras.length)h+='<div style="font-size:14px;margin-bottom:6px"><strong>Extras:</strong> '+S.extras.map(function(e){return esc(e.name)}).join(", ")+'</div>';
+    h+='<div style="border-top:1px solid #ddd;margin-top:12px;padding-top:12px;font-size:18px;font-weight:500;text-align:right">Estimated total: '+fm(tot())+'</div>';
+    h+='</div></div>';
+    a.innerHTML=h;return;
+  }
+
+  var h='<div class="hdr"><small>Propose in Budapest</small><h1>Build your dream proposal</h1></div>';
+  h+='<div class="prog">';
+  for(var i=0;i<4;i++)h+='<div class="'+(i<=S.step?"a":"")+'"></div>';
+  h+='</div>';
+  var titles=["Choose your decoration","Choose your location","Add extras","Your proposal summary"];
+  var subs=["Select one decoration style","Select where you'd like to propose","Optional — select as many as you'd like",""];
+  h+='<div class="slbl"><div class="n">Step '+(S.step+1)+' of 4</div><h2>'+titles[S.step]+'</h2>';
+  if(subs[S.step])h+='<p>'+subs[S.step]+'</p>';
+  h+='</div>';
+
+  if(S.step===0){
+    h+='<div class="g2">';
+    D.forEach(function(d){
+      var sel=S.decor&&S.decor.id===d.id;
+      h+='<div class="cd'+(sel?" s":"")+'" onclick="pD(\''+d.id+'\')">';
+      h+='<div class="ci">'+imgTag(d.img,d.name)+'</div>';
+      if(sel)h+='<div class="ck">'+CK+'</div>';
+      h+='<div class="cb"><h3>'+esc(d.name)+'</h3><p>'+esc(d.desc)+'</p><div class="pr">'+fm(d.price)+'</div>';
+      if(d.variants&&sel){
+        h+='<div class="vsel">';
+        d.variants.forEach(function(v){
+          h+='<button class="'+(d.variant===v?"va":"")+'" onclick="event.stopPropagation();sV(\''+d.id+'\',\''+v+'\')">'+esc(v)+'</button>';
+        });
+        h+='</div>';
+      }
+      h+='</div></div>';
+    });
+    h+='</div>';
+  }
+
+  if(S.step===1){
+    var vis=L.filter(function(l){return!l.onlyDecor||l.onlyDecor===(S.decor&&S.decor.id)});
+    h+='<div class="g2">';
+    vis.forEach(function(l){
+      var sel=S.loc&&S.loc.id===l.id;
+      var imgPos=l.id==="robinson"?"center top":null;
+      h+='<div class="cd sm'+(sel?" s":"")+'" onclick="pL(\''+l.id+'\')">';
+      h+='<div class="ci">'+imgTag(l.img,l.name,l.c||"#1a3a5c",imgPos)+'</div>';
+      if(sel)h+='<div class="ck">'+CK+'</div>';
+      h+='<div class="bg" style="background:'+(l.pub?"rgba(26,58,92,.8)":"rgba(92,26,58,.8)")+'">'+(l.pub?"PUBLIC":"PRIVATE")+'</div>';
+      if(l.id==="robinson")h+='<div class="bg" style="left:auto;right:8px;background:rgba(0,0,0,.6)">MIN. SPEND</div>';
+      h+='<div class="cb"><h3>'+esc(l.name)+'</h3><p>'+esc(l.desc)+'</p><div class="pr">'+l.pl+'</div></div></div>';
+    });
+    h+='</div>';
+  }
+
+  if(S.step===2){
+    var di=disc();
+    var isPub=S.loc&&S.loc.pub===true;
+    if(S.extras.length===2)h+='<div class="promo">🎉 Add one more service and get 50% off the cheapest one!</div>';
+    if(S.extras.length>=3){
+      var dn=E.filter(function(e){return e.id===di.id})[0];
+      h+='<div class="promo">🎉 50% discount applied on '+(dn?esc(dn.name):"")+'! You save '+fm(di.amt)+'</div>';
+    }
+    h+='<div class="g3">';
+    E.forEach(function(ex){
+      var sel=S.extras.filter(function(e){return e.id===ex.id}).length>0;
+      var isD=di.id===ex.id;
+      var blocked=ex.id==="cold-spark"&&isPub;
+      h+='<div class="ec'+(sel?" s":"")+'" '+(blocked?'':'onclick="tE(\''+ex.id+'\')"')+' style="'+(blocked?"opacity:.5;cursor:not-allowed":"")+'">';
+      if(sel)h+='<div class="ck">'+CK+'</div>';
+      if(isD)h+='<div style="position:absolute;top:8px;left:8px;background:#3b6d11;color:#fff;font-size:10px;font-weight:600;padding:2px 7px;border-radius:5px">-50%</div>';
+      h+='<div style="margin-bottom:10px">'+eico(ex.icon)+'</div>';
+      h+='<h3>'+esc(ex.name)+'</h3><p>'+esc(ex.desc)+'</p>';
+      if(blocked)h+='<div style="color:#c0392b;font-size:11px;font-weight:500;margin-bottom:6px">Private venues only</div>';
+      if(isD)h+='<div class="ep"><span style="text-decoration:line-through;color:#888;font-size:14px">'+fm(ex.price)+'</span> '+fm(Math.round(ex.price/2))+'</div>';
+      else h+='<div class="ep">'+fm(ex.price)+'</div>';
+      h+='</div>';
+    });
+    h+='</div>';
+  }
+
+  if(S.step===3){
+    h+='<div class="sum">';
+    h+='<div class="sr"><div><div style="font-size:13px;font-weight:500;color:#888">Decoration</div><div style="font-weight:500">'+esc(S.decor.name)+(S.decor.variant?' <span style="color:#378add">('+esc(S.decor.variant)+')</span>':'')+'</div></div><div style="font-weight:500">'+fm(S.decor.price)+'</div></div>';
+    h+='<div class="sr"><div><div style="font-size:13px;font-weight:500;color:#888">Location</div><div style="font-weight:500">'+esc(S.loc.name)+'</div></div><div style="font-weight:500">'+S.loc.pl+'</div></div>';
+    if(S.extras.length){
+      var di=disc();
+      h+='<div style="margin-bottom:8px"><div style="font-size:13px;font-weight:500;color:#888;margin-bottom:4px">Extras</div>';
+      S.extras.forEach(function(ex){
+        var isD=di.id===ex.id;
+        h+='<div style="display:flex;justify-content:space-between;font-size:13px;padding-left:8px;margin-bottom:3px"><span>'+esc(ex.name)+(isD?' <span style="color:#3b6d11;font-weight:500">(-50%)</span>':'')+'</span><span style="color:#888">'+(isD?'<s>'+fm(ex.price)+'</s> '+fm(Math.round(ex.price/2)):fm(ex.price))+'</span></div>';
+      });
+      h+='</div>';
+    }
+    h+='<div class="st"><span style="font-size:16px;font-weight:500">Estimated total</span><span>'+fm(tot())+'</span></div></div>';
+
+    h+='<div style="margin-bottom:20px"><label style="font-size:14px;font-weight:500;display:block;margin-bottom:4px">Select your preferred dates *</label><div style="font-size:12px;color:#888;margin-bottom:8px">Tap to select one or more dates</div>';
+    h+=calHTML();
+    if(S.dates.length)h+='<div style="font-size:13px;color:#378add;margin-top:8px;font-weight:500">Selected: '+fds(S.dates)+'</div>';
+    h+='</div>';
+
+    h+='<div class="fld"><label>Your name *</label><input type="text" value="'+esc(S.form.name)+'" oninput="S.form.name=this.value;ub()" placeholder="John Smith"></div>';
+    h+='<div class="fld"><label>Email address *</label><input type="email" value="'+esc(S.form.email)+'" oninput="S.form.email=this.value;ub()" placeholder="john@example.com"></div>';
+    h+='<div class="fld"><label>Phone / WhatsApp</label><input type="tel" value="'+esc(S.form.phone)+'" oninput="S.form.phone=this.value" placeholder="+44 7xxx xxx xxx"></div>';
+    h+='<div class="fld"><label>Anything else?</label><textarea rows="3" oninput="S.form.msg=this.value" placeholder="Special requests, song preferences...">'+esc(S.form.msg)+'</textarea></div>';
+  }
+
+  h+='<div class="btm"'+(S.sending?' style="opacity:.6;pointer-events:none"':'')+'><div>'+(S.step>0?'<button class="bb" onclick="bk()">Back</button>':'')+'</div>';
+  h+='<div style="display:flex;align-items:center;gap:16px"><div style="text-align:right"><div style="font-size:11px;color:#888;text-transform:uppercase;letter-spacing:.5px">'+(S.step<3?"Running total":"Estimated total")+'</div><div style="font-size:22px;font-weight:500">'+fm(tot())+'</div></div>';
+  h+='<button class="bn" id="nb" '+(ok()?"":"disabled")+' onclick="'+(S.step<3?"nx()":"sub()")+'">'+(S.step<3?"Next":"Submit request")+'</button>';
+  h+='</div></div>';
+
+  h+='<div class="cta">Looking for something special? <a href="https://wa.me/36308996525?text=Hi!%20I\'d%20like%20a%20custom%20proposal%20quote." target="_blank" onclick="if(typeof gtag===\'function\')gtag(\'event\',\'custom_quote_clicked\',{step:S.step})">Request a custom quote</a></div>';
+
+  if(S.step<3)h+='<div class="inc"><strong>Always included:</strong> Elegant candlelight &amp; atmospheric lighting, professional on-site styling, phone photo &amp; video by our team, personalised music from speaker, champagne.</div>';
+
+  a.innerHTML=h;
+}
+
+function calHTML(){
+  var y=S.cY,m=S.cM,f=new Date(y,m,1).getDay(),dim=new Date(y,m+1,0).getDate();
+  var td=new Date();td.setHours(0,0,0,0);
+  var h='<div class="cal"><div class="ch"><button onclick="cP()">‹</button><span>'+MO[m]+' '+y+'</span><button onclick="cN()">›</button></div><div class="cg">';
+  DW.forEach(function(d){h+='<div class="cw">'+d+'</div>';});
+  for(var i=0;i<f;i++)h+='<div class="dy" style="cursor:default"></div>';
+  for(var d=1;d<=dim;d++){
+    var dt=new Date(y,m,d);
+    var dis=dt<td;
+    var sel=S.dates.some(function(sd){return sd.getTime()===dt.getTime()});
+    h+='<div class="dy'+(dis?" di":"")+(sel?" ds":"")+'" '+(dis?'':'onclick="tD('+y+','+m+','+d+')"')+'>'+d+'</div>';
+  }
+  h+='</div></div>';
+  return h;
+}
+
+function pD(id){
+  var d=D.filter(function(d){return d.id===id})[0];
+  S.decor=d;
+  if(!d.variants)d.variant=null;
+  render();
+}
+function sV(id,v){
+  var d=D.filter(function(d){return d.id===id})[0];
+  d.variant=v;
+  S.decor=d;
+  render();
+}
+function pL(id){S.loc=L.filter(function(l){return l.id===id})[0];if(S.loc.pub)S.extras=S.extras.filter(function(e){return e.id!=="cold-spark"});render();}
+function tE(id){
+  var ex=E.filter(function(e){return e.id===id})[0];
+  if(S.extras.filter(function(e){return e.id===id}).length)S.extras=S.extras.filter(function(e){return e.id!==id});
+  else S.extras.push(ex);
+  render();
+}
+function tD(y,m,d){
+  var dt=new Date(y,m,d);
+  var idx=-1;
+  S.dates.forEach(function(sd,i){if(sd.getTime()===dt.getTime())idx=i;});
+  if(idx>=0)S.dates.splice(idx,1);else S.dates.push(dt);
+  render();
+}
+function cP(){if(S.cM===0){S.cM=11;S.cY--;}else S.cM--;render();}
+function cN(){if(S.cM===11){S.cM=0;S.cY++;}else S.cM++;render();}
+function nx(){if(ok()){S.step++;if(typeof gtag==='function'){var steps=['decoration_selected','location_selected','extras_selected','summary_viewed'];gtag('event',steps[S.step-1],{decoration:S.decor?S.decor.name:'',location:S.loc?S.loc.name:'',extras_count:S.extras.length,total:tot()});}render();window.scrollTo(0,0);}}
+function bk(){S.step--;render();window.scrollTo(0,0);}
+function ub(){var b=document.getElementById("nb");if(b)b.disabled=!ok();}
+
+function sub(){
+  if(!ok()||S.sending)return;
+  S.sending=true;render();
+  if(typeof gtag==='function')gtag('event','proposal_submitted',{decoration:S.decor.name,location:S.loc.name,extras:S.extras.map(function(e){return e.name}).join(','),total:tot()});
+  var di=disc();
+  var p={
+    name:S.form.name,
+    email:S.form.email,
+    phone:S.form.phone||"Not provided",
+    date:fds(S.dates),
+    decoration:S.decor.name+(S.decor.variant?' ('+S.decor.variant+')':'')+" — "+fm(S.decor.price),
+    location:S.loc.name+" — "+S.loc.pl,
+    extras:S.extras.length?S.extras.map(function(e){var isD=di.id===e.id;return e.name+" ("+fm(isD?Math.round(e.price/2):e.price)+")"+(isD?" [50% OFF]":"")}).join(", "):"None",
+    total:fm(tot()),
+    message:S.form.msg||"No additional notes"
+  };
+  emailjs.send("service_u02wwwx","template_6dtrntf",p)
+    .then(function(){S.done=true;S.sending=false;render();window.scrollTo(0,0);})
+    .catch(function(err){S.sending=false;render();alert("Something went wrong. Please try again or contact us via WhatsApp.");console.error(err);});
+}
+
+render();
+</script>
+</body>
+</html>
