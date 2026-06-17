@@ -373,7 +373,7 @@ function sub(){
     message:S.form.msg||"No additional notes"
   };
   emailjs.send("service_u02wwwx","template_6dtrntf",p)
-    .then(function(){S.done=true;S.sending=false;render();window.scrollTo(0,0);})
+    .then(function(){S.done=true;S.sending=false;render();window.scrollTo(0,0);try{window.parent.postMessage({type:'pib-lead'},'*');}catch(e){}})
     .catch(function(err){S.sending=false;render();alert("Something went wrong. Please try again or contact us via WhatsApp.");console.error(err);});
 }
 
