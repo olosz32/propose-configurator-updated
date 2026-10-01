@@ -92,12 +92,12 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 emailjs.init("yhe_mbjgf-0TxIkcw");
 
 var D=[
-{id:"simple",name:"Simple Elegant",price:250,desc:'LED candles, roses, rose petals, "Will You Marry Me" LED letters, lanterns, string lights, speaker, champagne',img:"images/decor-simple.jpg"},
+{id:"simple",name:"Simple Elegant",price:260,desc:'LED candles, roses, rose petals, "Will You Marry Me" LED letters, lanterns, string lights, speaker, champagne',img:"images/decor-simple.jpg"},
 {id:"simple-deluxe",name:"Simple Elegant Deluxe",price:300,desc:"Enhanced lighting, additional roses, premium candle arrangement, all Simple Elegant features",img:"images/decor-simple-deluxe.jpg"},
-{id:"blooming",name:"Blooming Elegance",price:300,desc:"Tall floral installations in a semicircle with elegant pillar candles — a lush garden atmosphere",img:"images/decor-blooming.jpg"},
+{id:"blooming",name:"Blooming Elegance",price:300,desc:"Tall floral installations in a semicircle with elegant pillar candles — a lush garden atmosphere",img:"images/decor-blooming.jpg",variants:["Red","White"],variant:null},
 {id:"pink-romance",name:"Pink Romance Arch Setup",price:480,desc:"A breathtaking pink rose arch with cascading blooms, golden candelabras, pillar candles, rose-filled vases, and a petal-covered aisle",img:"images/decor-pink-romance.jpg"},
 {id:"romantic-arch",name:"Romantic Arch",price:380,desc:"Beautiful arch with string lights and flowers, rose petals, candles, lanterns, champagne",img:"images/decor-romantic-arch.jpg"},
-{id:"magnificent",name:"Magnificent Arch",price:560,desc:"Heart-shaped rose arch from 100+ roses, LED sign, petals, candles, string lights, lanterns, rose balls",img:"images/decor-magnificent.jpg",variants:["Red","White"],variant:null}
+{id:"magnificent",name:"Magnificent Arch",price:560,desc:"Heart-shaped rose arch from 100+ roses, LED sign, petals, candles, string lights, lanterns, rose balls",img:"images/decor-magnificent.jpg",variants:["Red","White","Pink"],variant:null}
 ];
 
 var L=[
@@ -114,7 +114,8 @@ var L=[
 {id:"lumiere",name:"Lumiere Hall",price:260,pl:"From €260",desc:"An immersive multimedia room — a unique, cinematic proposal atmosphere.",pub:false,img:"images/lumiere.jpg"},
 {id:"pluto",name:"Pluto Sky Lounge",price:300,pl:"From €300",desc:"A private sky terrace high above the city — a truly elevated experience.",pub:false,img:"images/pluto.jpg"},
 {id:"buda-castle",name:"Buda Castle — Parliament View",price:600,pl:"From €600",desc:"A private spot at the historic Buda Castle with direct Parliament view.",pub:false,img:"images/buda-castle.jpg"},
-{id:"fisherman",name:"Fisherman's Bastion — Private Terrace",price:1000,pl:"From €1,000",desc:"Exclusive private terrace with Parliament views. 3-course dinner for two included.",pub:false,img:"images/fisherman.jpg"},
+{id:"fisherman",name:"Fisherman's Bastion — Private Terrace",price:1000,pl:"From €1,000",desc:"Exclusive private terrace with Parliament views. 3-course dinner for two included.",pub:false,img:"images/fisherman.jpg",unavail:true},
+{id:"aranybasty",name:"Aranybástya",price:800,pl:"From €800",desc:"Private terrace for 2 hours. 80% of venue fee spendable on food & drinks.",pub:false,img:"images/aranybasty.jpg"},
 {id:"robinson",name:"Robinson Restaurant",price:0,pl:"No venue fee",desc:"Private terrace by the lake in City Park. Minimum dinner spend required.",pub:false,img:"images/robinson.jpg"},
 {id:"helicopter",name:"Helicopter to Etyek Vineyard",price:1600,pl:"From €1,600",desc:"An unforgettable helicopter ride to a stunning vineyard outside Budapest.",pub:false,img:"images/helicopter.jpg"}
 ];
@@ -125,7 +126,7 @@ var E=[
 {id:"musician",name:"Live Musician",price:100,desc:"Violinist, guitarist or saxophonist",icon:"music"},
 {id:"single-rose",name:"Eternal Rose",price:30,desc:"One beautiful preserved eternal rose",icon:"rose1"},
 {id:"bouquet-30",name:"Rose Bouquet",price:100,desc:"30 fresh roses beautifully arranged",icon:"bsm"},
-{id:"bouquet-50",name:"Rose Bouquet",price:220,desc:"50 fresh roses — lush arrangement",icon:"bmd"},
+{id:"bouquet-50",name:"Rose Bouquet",price:240,desc:"50 fresh roses — lush arrangement",icon:"bmd"},
 {id:"bouquet-100",name:"Rose Bouquet",price:480,desc:"100 fresh roses — grand bouquet",icon:"blg"},
 {id:"photo-display",name:"Photo Display",price:30,desc:"Up to 20 personal photos displayed",icon:"photos"},
 {id:"cold-spark",name:"Cold Spark Fountain",price:100,desc:"Sparkling effect. Private venues only.",icon:"spark"}
@@ -234,12 +235,14 @@ function render(){
     vis.forEach(function(l){
       var sel=S.loc&&S.loc.id===l.id;
       var imgPos=l.id==="robinson"?"center top":null;
-      h+='<div class="cd sm'+(sel?" s":"")+'" onclick="pL(\''+l.id+'\')">';
+      var ua=l.unavail===true;
+      h+='<div class="cd sm'+(sel&&!ua?" s":"")+'" '+(ua?'style="opacity:.55;cursor:not-allowed"':'onclick="pL(\''+l.id+'\')"')+'>';
       h+='<div class="ci">'+imgTag(l.img,l.name,l.c||"#1a3a5c",imgPos)+'</div>';
-      if(sel)h+='<div class="ck">'+CK+'</div>';
-      h+='<div class="bg" style="background:'+(l.pub?"rgba(26,58,92,.8)":"rgba(92,26,58,.8)")+'">'+(l.pub?"PUBLIC":"PRIVATE")+'</div>';
+      if(sel&&!ua)h+='<div class="ck">'+CK+'</div>';
+      if(ua)h+='<div class="bg" style="background:rgba(180,40,40,.85)">TEMPORARILY UNAVAILABLE</div>';
+      else{h+='<div class="bg" style="background:'+(l.pub?"rgba(26,58,92,.8)":"rgba(92,26,58,.8)")+'">'+(l.pub?"PUBLIC":"PRIVATE")+'</div>';}
       if(l.id==="robinson")h+='<div class="bg" style="left:auto;right:8px;background:rgba(0,0,0,.6)">MIN. SPEND</div>';
-      h+='<div class="cb"><h3>'+esc(l.name)+'</h3><p>'+esc(l.desc)+'</p><div class="pr">'+l.pl+'</div></div></div>';
+      h+='<div class="cb"><h3'+(ua?' style="text-decoration:line-through;color:#999"':'')+'>'+ esc(l.name)+'</h3><p>'+esc(l.desc)+'</p><div class="pr">'+l.pl+'</div></div></div>';
     });
     h+='</div>';
   }
@@ -336,7 +339,7 @@ function sV(id,v){
   S.decor=d;
   render();
 }
-function pL(id){S.loc=L.filter(function(l){return l.id===id})[0];if(S.loc.pub)S.extras=S.extras.filter(function(e){return e.id!=="cold-spark"});render();}
+function pL(id){var loc=L.filter(function(l){return l.id===id})[0];if(loc.unavail)return;S.loc=loc;if(S.loc.pub)S.extras=S.extras.filter(function(e){return e.id!=="cold-spark"});render();}
 function tE(id){
   var ex=E.filter(function(e){return e.id===id})[0];
   if(S.extras.filter(function(e){return e.id===id}).length)S.extras=S.extras.filter(function(e){return e.id!==id});
