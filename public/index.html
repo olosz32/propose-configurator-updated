@@ -104,11 +104,11 @@ var L=[
 {id:"gellert-panoramic",name:"Gellért Hill — Panoramic",price:0,pl:"No venue fee",desc:"Breathtaking panoramic views over the city and the Danube.",pub:true,img:"images/gellert-panoramic.jpg"},
 {id:"gellert-mirador",name:"Gellért Hill — Mirador",price:0,pl:"No venue fee",desc:"A secluded viewpoint with an intimate setting and stunning city views.",pub:true,img:"images/gellert-mirador.jpg"},
 {id:"gellert-fullcity",name:"Gellért Hill — Full City",price:0,pl:"No venue fee",desc:"Wide-angle city panorama — a dramatic backdrop for your proposal.",pub:true,img:"images/gellert-fullcity.jpg"},
-{id:"gellert-citadella",name:"Gellért Hill — Citadella",price:0,pl:"No venue fee",desc:"Near the Citadella with sweeping views of both sides of the Danube.",pub:true,img:"images/gellert-citadella.jpg"},
 {id:"fisherman-wall",name:"Fisherman's Bastion — Public Wall",price:0,pl:"No venue fee",desc:"A charming public section of the iconic Bastion with fairy-tale architecture.",pub:true,img:"images/fisherman-wall.jpg",onlyDecor:"simple"},
 {id:"vajdahunyad",name:"Vajdahunyad Castle — Secret Garden",price:60,pl:"From €60",desc:"A fairy-tale garden setting at the iconic castle in City Park.",pub:false,img:"images/vajdahunyad.jpg"},
 {id:"vajdahunyad-front",name:"Vajdahunyad Castle — Front",price:0,pl:"No venue fee",desc:"The stunning front entrance of the iconic fairy-tale castle.",pub:true,img:"images/vajdahunyad-front.jpg"},
 {id:"villa-fountain",name:"Villa Fountain (Buda)",price:200,pl:"From €200",desc:"An elegant villa with gardens and fountain in the Buda hills.",pub:false,img:"images/villa-fountain.jpg"},
+{id:"sorg-villa",name:"Sorg Villa — Leányfalu",price:300,pl:"From €300",desc:"A beautiful baroque villa just 20 km from Budapest.",pub:false,img:"images/sorg-villa.jpg"},
 {id:"mol-tower",name:"MOL Tower",price:320,pl:"From €320",desc:"Budapest's newest landmark with 360° views from the observation deck.",pub:false,img:"images/mol-tower.jpg"},
 {id:"cruise",name:"Private Danube Cruise",price:260,pl:"From €260",desc:"A private boat on the Danube. Evening surcharge (after 6 PM): +€60.",pub:false,img:"images/cruise.jpg"},
 {id:"lumiere",name:"Lumiere Hall",price:260,pl:"From €260",desc:"An immersive multimedia room — a unique, cinematic proposal atmosphere.",pub:false,img:"images/lumiere.jpg"},
@@ -176,11 +176,20 @@ function eico(t){
   return HT;
 }
 
-function imgTag(src,name,c,pos){
+function imgTag(src,name,c,pos,mode){
+  var bg=c||"#1a3a5c";
+  if(mode==="contain"&&src){
+    var fgst='position:relative;width:100%;height:100%;object-fit:contain;display:block';
+    if(pos)fgst+=';object-position:'+pos;
+    return'<div style="position:relative;width:100%;height:100%;overflow:hidden;background:'+bg+'">'
+      +'<img src="'+src+'" aria-hidden="true" onerror="this.style.display=\'none\'" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:blur(20px) brightness(.6);transform:scale(1.15)">'
+      +'<img src="'+src+'" alt="'+esc(name)+'" onerror="this.style.display=\'none\'" style="'+fgst+'">'
+      +'</div>';
+  }
   var st='width:100%;height:100%;object-fit:cover;display:block';
   if(pos)st+=';object-position:'+pos;
-  if(src)return'<img src="'+src+'" alt="'+esc(name)+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="'+st+'"><div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,'+(c||"#1a3a5c")+','+(c||"#1a3a5c")+'99);color:rgba(255,255,255,.6);font-size:11px;text-align:center">'+HT+'<div>'+esc(name)+'</div></div>';
-  return'<div style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,'+(c||"#1a3a5c")+','+(c||"#1a3a5c")+'99);color:rgba(255,255,255,.6);font-size:11px;text-align:center;padding:8px">'+HT+'<br>'+esc(name)+'</div>';
+  if(src)return'<img src="'+src+'" alt="'+esc(name)+'" onerror="this.style.display=\'none\';this.nextSibling.style.display=\'flex\'" style="'+st+'"><div style="display:none;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,'+bg+','+bg+'99);color:rgba(255,255,255,.6);font-size:11px;text-align:center">'+HT+'<div>'+esc(name)+'</div></div>';
+  return'<div style="display:flex;width:100%;height:100%;align-items:center;justify-content:center;background:linear-gradient(135deg,'+bg+','+bg+'99);color:rgba(255,255,255,.6);font-size:11px;text-align:center;padding:8px">'+HT+'<br>'+esc(name)+'</div>';
 }
 
 function render(){
@@ -237,7 +246,7 @@ function render(){
       var imgPos=l.id==="robinson"?"center top":null;
       var ua=l.unavail===true;
       h+='<div class="cd sm'+(sel&&!ua?" s":"")+'" '+(ua?'style="opacity:.55;cursor:not-allowed"':'onclick="pL(\''+l.id+'\')"')+'>';
-      h+='<div class="ci">'+imgTag(l.img,l.name,l.c||"#1a3a5c",imgPos)+'</div>';
+      h+='<div class="ci">'+imgTag(l.img,l.name,l.c||"#1a3a5c",imgPos,"contain")+'</div>';
       if(sel&&!ua)h+='<div class="ck">'+CK+'</div>';
       if(ua)h+='<div class="bg" style="background:rgba(180,40,40,.85)">TEMPORARILY UNAVAILABLE</div>';
       else{h+='<div class="bg" style="background:'+(l.pub?"rgba(26,58,92,.8)":"rgba(92,26,58,.8)")+'">'+(l.pub?"PUBLIC":"PRIVATE")+'</div>';}
