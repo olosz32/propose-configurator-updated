@@ -102,7 +102,7 @@ var D=[
 
 var L=[
 {id:"gellert-panoramic",name:"Gellért Hill — Panoramic",price:0,pl:"No venue fee",desc:"Breathtaking panoramic views over the city and the Danube.",pub:true,img:"images/gellert-panoramic.jpg"},
-{id:"gellert-mirador",name:"Gellért Hill — Mirador",price:0,pl:"No venue fee",desc:"A secluded viewpoint with an intimate setting and stunning city views.",pub:true,img:"images/gellert-mirador.jpg"},
+{id:"gellert-mirador",name:"Gellért Hill — Intimate Viewpoint",price:0,pl:"No venue fee",desc:"A secluded viewpoint with an intimate setting and stunning city views.",pub:true,img:"images/gellert-intimate.jpg"},
 {id:"gellert-fullcity",name:"Gellért Hill — Full City",price:0,pl:"No venue fee",desc:"Wide-angle city panorama — a dramatic backdrop for your proposal.",pub:true,img:"images/gellert-fullcity.jpg"},
 {id:"fisherman-wall",name:"Fisherman's Bastion — Public Wall",price:0,pl:"No venue fee",desc:"A charming public section of the iconic Bastion with fairy-tale architecture.",pub:true,img:"images/fisherman-wall.jpg",onlyDecor:"simple"},
 {id:"vajdahunyad",name:"Vajdahunyad Castle — Secret Garden",price:60,pl:"From €60",desc:"A fairy-tale garden setting at the iconic castle in City Park.",pub:false,img:"images/vajdahunyad.jpg"},
@@ -115,7 +115,7 @@ var L=[
 {id:"pluto",name:"Pluto Sky Lounge",price:300,pl:"From €300",desc:"A private sky terrace high above the city — a truly elevated experience.",pub:false,img:"images/pluto.jpg"},
 {id:"buda-castle",name:"Buda Castle — Parliament View",price:600,pl:"From €600",desc:"A private spot at the historic Buda Castle with direct Parliament view.",pub:false,img:"images/buda-castle.jpg"},
 {id:"fisherman",name:"Fisherman's Bastion — Private Terrace",price:1800,pl:"From €1,800",desc:"Exclusive private terrace with Parliament views. 3-course dinner for two included.",pub:false,img:"images/fisherman.jpg"},
-{id:"aranybasty",name:"Aranybástya",price:1500,pl:"From €1,500",desc:"Private terrace for 2 hours. 80% of venue fee spendable on food & drinks.",pub:false,img:"images/aranybasty.jpg"},
+{id:"aranybasty",name:"Aranybástya",price:900,pl:"From €900",desc:"Private terrace for 2 hours. 80% of venue fee spendable on food & drinks.",pub:false,img:"images/aranybasty.jpg"},
 {id:"robinson",name:"Robinson Restaurant",price:0,pl:"No venue fee",desc:"Private terrace by the lake in City Park. Minimum dinner spend required.",pub:false,img:"images/robinson.jpg"},
 {id:"helicopter",name:"Helicopter to Etyek Vineyard",price:1600,pl:"From €1,600",desc:"An unforgettable helicopter ride to a stunning vineyard outside Budapest.",pub:false,img:"images/helicopter.jpg"}
 ];
@@ -235,10 +235,9 @@ function render(){
     h+='<div class="g2">';
     vis.forEach(function(l){
       var sel=S.loc&&S.loc.id===l.id;
-      var imgPos=l.id==="robinson"?"center top":null;
       var ua=l.unavail===true;
       h+='<div class="cd sm'+(sel&&!ua?" s":"")+'" '+(ua?'style="opacity:.55;cursor:not-allowed"':'onclick="pL(\''+l.id+'\')"')+'>';
-      h+='<div class="ci">'+imgTag(l.img,l.name,l.c||"#1a3a5c",imgPos)+'</div>';
+      h+='<div class="ci">'+imgTag(l.img,l.name,l.c||"#1a3a5c")+'</div>';
       if(sel&&!ua)h+='<div class="ck">'+CK+'</div>';
       if(ua)h+='<div class="bg" style="background:rgba(180,40,40,.85)">TEMPORARILY UNAVAILABLE</div>';
       else{h+='<div class="bg" style="background:'+(l.pub?"rgba(26,58,92,.8)":"rgba(92,26,58,.8)")+'">'+(l.pub?"PUBLIC":"PRIVATE")+'</div>';}
