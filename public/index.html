@@ -104,6 +104,7 @@ var L=[
 {id:"vajdahunyad-front",name:"Vajdahunyad Castle — Front",price:0,pl:"No venue fee",desc:"The stunning front entrance of the iconic fairy-tale castle.",pub:true,img:"images/vajdahunyad-front.jpg"},
 {id:"villa-fountain",name:"Villa Fountain (Buda)",price:200,pl:"From €200",desc:"An elegant villa with gardens and fountain in the Buda hills.",pub:false,img:"images/villa-fountain.jpg"},
 {id:"sorg-villa",name:"Sorg Villa — Leányfalu",price:300,pl:"From €300",desc:"A beautiful baroque villa just 20 km from Budapest.",pub:false,img:"images/sorg-villa.jpg"},
+{id:"downtown-terrace",name:"Downtown Private Terrace",price:320,pl:"From €320",desc:"A private terrace in the heart of downtown Budapest.",pub:false,img:"images/pullman_hotel.jpg"},
 {id:"mol-tower",name:"MOL Tower",price:320,pl:"From €320",desc:"Budapest's newest landmark with 360° views from the observation deck.",pub:false,img:"images/mol-tower.jpg"},
 {id:"cruise",name:"Private Danube Cruise",price:300,pl:"From €300",desc:"A private boat on the Danube with Parliament views.",pub:false,img:"images/cruise.jpg"},
 {id:"lumiere",name:"Lumiere Hall",price:260,pl:"From €260",desc:"An immersive multimedia room — a unique, cinematic proposal atmosphere.",pub:false,img:"images/lumiere.jpg"},
@@ -141,9 +142,15 @@ function disc(){
   var sorted=S.extras.slice().sort(function(a,b){return a.price-b.price});
   return{id:sorted[0].id,amt:Math.round(sorted[0].price/2)};
 }
-function cruiseDeal(l){return l&&l.id==="cruise"&&S.decor&&S.decor.id==="magnificent";}
-function lp(l){return cruiseDeal(l)?Math.round(l.price*0.7):l.price;}
-function lpl(l){return cruiseDeal(l)?"From "+fm(lp(l))+" (30% off with Magnificent Arch)":l.pl;}
+// Location discounts unlocked by specific decorations
+var DEALS=[
+{loc:"cruise",decors:["magnificent"],pct:30},
+{loc:"downtown-terrace",decors:["pink-romance","blooming","magnificent"],pct:20}
+];
+function dealFor(l){if(!l||!S.decor)return null;for(var i=0;i<DEALS.length;i++){var d=DEALS[i];if(d.loc===l.id&&d.decors.indexOf(S.decor.id)>=0)return d;}return null;}
+function cruiseDeal(l){return!!dealFor(l);}
+function lp(l){var d=dealFor(l);return d?Math.round(l.price*(100-d.pct)/100):l.price;}
+function lpl(l){var d=dealFor(l);return d?"From "+fm(lp(l))+" ("+d.pct+"% off with "+S.decor.name+")":l.pl;}
 function lplHTML(l){return cruiseDeal(l)?'<span style="text-decoration:line-through;color:#888;font-size:13px">'+fm(l.price)+'</span> '+fm(lp(l)):l.pl;}
 function tot(){return(S.decor?S.decor.price:0)+(S.loc?lp(S.loc):0)+S.extras.reduce(function(s,e){return s+e.price},0)-disc().amt;}
 function ok(){
@@ -230,7 +237,8 @@ function render(){
   }
 
   if(S.step===1){
-    if(S.decor&&S.decor.id==="magnificent")h+='<div class="promo">'+(S.loc&&S.loc.id==="cruise"?'🎉 Magnificent Arch on the boat: 30% off the cruise applied! You save '+fm(S.loc.price-lp(S.loc)):'💝 Special offer: Magnificent Arch on our Private Danube Cruise — 30% off the cruise')+'</div>';
+    if(S.loc&&dealFor(S.loc))h+='<div class="promo">🎉 '+esc(S.decor.name)+' at '+esc(S.loc.name)+': '+dealFor(S.loc).pct+'% off the venue applied! You save '+fm(S.loc.price-lp(S.loc))+'</div>';
+    else{var offers=L.filter(function(l){return dealFor(l)});if(offers.length)h+='<div class="promo">💝 Special offer with '+esc(S.decor.name)+': '+offers.map(function(l){return dealFor(l).pct+'% off '+esc(l.name)}).join(' · ')+'</div>';}
     var vis=L.filter(function(l){return!l.onlyDecor||l.onlyDecor===(S.decor&&S.decor.id)});
     h+='<div class="g2">';
     vis.forEach(function(l){
@@ -242,7 +250,7 @@ function render(){
       if(ua)h+='<div class="bg" style="background:rgba(180,40,40,.85)">TEMPORARILY UNAVAILABLE</div>';
       else{h+='<div class="bg" style="background:'+(l.pub?"rgba(26,58,92,.8)":"rgba(92,26,58,.8)")+'">'+(l.pub?"PUBLIC":"PRIVATE")+'</div>';}
       if(l.id==="robinson")h+='<div class="bg" style="left:auto;right:8px;background:rgba(0,0,0,.6)">MIN. SPEND</div>';
-      if(cruiseDeal(l))h+='<div class="bg" style="left:auto;right:'+(sel?'40px':'8px')+';background:#3b6d11">-30% WITH YOUR ARCH</div>';
+      if(cruiseDeal(l))h+='<div class="bg" style="left:auto;right:'+(sel?'40px':'8px')+';background:#3b6d11">-'+dealFor(l).pct+'% WITH YOUR DECOR</div>';
       h+='<div class="cb"><h3'+(ua?' style="text-decoration:line-through;color:#999"':'')+'>'+ esc(l.name)+'</h3><p>'+esc(l.desc)+'</p><div class="pr">'+lplHTML(l)+'</div></div></div>';
     });
     h+='</div>';
@@ -277,7 +285,7 @@ function render(){
   if(S.step===3){
     h+='<div class="sum">';
     h+='<div class="sr"><div><div style="font-size:13px;font-weight:500;color:#888">Decoration</div><div style="font-weight:500">'+esc(S.decor.name)+(S.decor.variant?' <span style="color:#378add">('+esc(S.decor.variant)+')</span>':'')+'</div></div><div style="font-weight:500">'+fm(S.decor.price)+'</div></div>';
-    h+='<div class="sr"><div><div style="font-size:13px;font-weight:500;color:#888">Location</div><div style="font-weight:500">'+esc(S.loc.name)+(cruiseDeal(S.loc)?' <span style="color:#3b6d11;font-weight:500">(-30%)</span>':'')+'</div></div><div style="font-weight:500">'+lplHTML(S.loc)+'</div></div>';
+    h+='<div class="sr"><div><div style="font-size:13px;font-weight:500;color:#888">Location</div><div style="font-weight:500">'+esc(S.loc.name)+(cruiseDeal(S.loc)?' <span style="color:#3b6d11;font-weight:500">(-'+dealFor(S.loc).pct+'%)</span>':'')+'</div></div><div style="font-weight:500">'+lplHTML(S.loc)+'</div></div>';
     if(S.extras.length){
       var di=disc();
       h+='<div style="margin-bottom:8px"><div style="font-size:13px;font-weight:500;color:#888;margin-bottom:4px">Extras</div>';
